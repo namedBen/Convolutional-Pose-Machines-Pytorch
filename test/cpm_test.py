@@ -11,7 +11,7 @@ sigma = 3.0
 def construct_model(pre_model_path):
 
     model = cpm_model.CPM(k=14)
-    state_dict = torch.load(pre_model_path)['state_dict']
+    state_dict = torch.load(pre_model_path, weights_only=True)['state_dict']
     from collections import OrderedDict
     new_state_dict = OrderedDict()
     for k, v in state_dict.items():
